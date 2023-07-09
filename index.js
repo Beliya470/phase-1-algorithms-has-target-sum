@@ -1,17 +1,37 @@
+// The function checks each pair of numbers in the array. 
+// If a pair sums up to the target, the function immediately returns true. 
+// If no such pair is found after checking all possible pairs, the function returns false.
+
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] === target) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
-/* 
-  Write the Big O time complexity of your function here
+/*
+  Big O time complexity: O(n^2)
+  This is because for each element in the array, we're checking all other elements.
 */
 
 /* 
-  Add your pseudocode here
+  Pseudocode:
+  For each 'element1' in 'array'
+    For each 'element2' in 'array' that comes after 'element1'
+      If 'element1' + 'element2' is equal to 'target'
+        return true
+  return false
 */
 
 /*
-  Add written explanation of your solution here
+  Explanation:
+  We use a nested loop to check each pair of elements in the array.
+  If any pair sums up to the target, we immediately return true.
+  If no pair sums up to the target, we eventually return false.
 */
 
 // You can run `node index.js` to view these console logs
